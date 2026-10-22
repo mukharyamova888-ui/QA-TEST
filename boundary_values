@@ -1,0 +1,16 @@
+def boundary_values(a, b):
+    if not isinstance(a, int) or isinstance(a, bool) or not isinstance(b, int) or isinstance(b, bool):
+        return "Некорректные данные"
+
+    if a > b:
+        return "Некорректный диапазон"
+
+    values = [a - 1, a, a + 1, b - 1, b, b + 1]
+
+    return sorted(set(values))
+
+#Проверка
+print(boundary_values(1, 100))  #[0, 1, 2, 99, 100, 101]
+print(boundary_values(5, 5))    #[4, 5, 6]
+print(boundary_values(100, 1))  #Некорректный диапазон
+print(boundary_values(1.5, 10))  #Некорректные данные
